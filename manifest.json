@@ -1,0 +1,21 @@
+{
+  "name": "Translate With Writing",
+  "description": "Specify inputarea and translate input text",
+  "version": "1.0",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*", "storage"
+  ],
+  "browser_action": {
+      "default_title": "Set this page's color.",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mastodon.to/*"],
+      "js": ["translate.js"],
+      "run_at": "document_idle"
+  }],
+  "manifest_version": 2
+}
+
