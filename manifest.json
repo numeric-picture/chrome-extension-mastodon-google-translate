@@ -12,7 +12,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://mastodon.to/*"],
+      "matches": ["https://mastodon.to/*","https://mastodon.social/*","https://d.tli.io/*"],
       "js": ["translate.js"],
       "run_at": "document_idle"
   }],

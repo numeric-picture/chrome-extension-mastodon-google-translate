@@ -14,7 +14,7 @@
       margin-top: 0px;
     }
 
-    div {
+    div#saveButton {
       cursor: pointer;
       text-align: center;
       padding: 1px 3px;
@@ -24,7 +24,7 @@
       margin-top: 1px;
       background: #cccccc;
     }
-    div:hover {
+    div#saveButton:hover {
       background: #aaaaaa;
     }
     #red {
@@ -47,7 +47,13 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    Google Translate API Key : <input type="text" id="apikey" />   
-    <div>save</div>
+    <div id="key">Google Translate API Key : <input type="text" id="apikey" style="align: right;" /></div>
+    <div id="source" style="visibility: hidden;">Source Language : </div>
+    <div id="target" style="visibility: hidden;">Target Language : </div>
+    <input type="hidden" id="support_lang" />
+    <div id="saveButton">save</div>
+    <!--
+    <div id="resetButton">reset</div>
+    -->
   </body>
 </html>
