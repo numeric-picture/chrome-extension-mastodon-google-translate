@@ -1,14 +1,6 @@
 
 getUserPrefs();
 
-function click(e) {
-  chrome.tabs.executeScript(null,
-//      {code:"document.body.style.backgroundColor='" + e.target.id + "'"}
-      {code:"alert('" + e.target.id + "');"}
-  );
-  window.close();
-}
-
 function getUserPrefs() {
   chrome.storage.sync.get(['apikey','source_lang','target_lang', 'support_lang'], function (obj) {
 
