@@ -2,6 +2,9 @@
 
 This is a Chrome Extension that helps foreign language communication at Mastodon.
 
+## Installation
+
+
 ## Usage
 
 1. Create google Cloud Platform account
