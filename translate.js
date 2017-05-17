@@ -1,8 +1,14 @@
 (function() {
   var TRANSLATE_KEY = undefined;
+  var TARGET_LANG = undefined;
+  var SOURCE_LANG = undefined;
+
   chrome.storage.sync.get(['apikey','source_lang','target_lang'], function(items) {
-    console.debug('Settings retrieved', items);
     TRANSLATE_KEY = items.apikey;
+    if (TRANSLATE_KEY == undefined) {
+      // abort here if translate key has not provided
+      return;
+    }
 
     TARGET_LANG = items.target_lang
     if (TARGET_LANG == undefined) {
@@ -53,7 +59,7 @@
     translate_button.setAttribute("id", "ext_google_translate_button");
     translate_button.setAttribute("class", "text-icon-button");
     translate_button.setAttribute("aria-expanded", "false");
-    translate_button.innerText = SOURCE_LANG.toUpperCase() + "->" + TARGET_LANG.toUpperCase();
+    translate_button.innerText = SOURCE_LANG.toUpperCase() + ">" + TARGET_LANG.toUpperCase();
     translate_button.onclick = function() {
       requestTranslate(source_area.value);
     };

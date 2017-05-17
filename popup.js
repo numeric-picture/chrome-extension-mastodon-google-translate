@@ -3,7 +3,6 @@ getUserPrefs();
 
 function getUserPrefs() {
   chrome.storage.sync.get(['apikey','source_lang','target_lang', 'support_lang'], function (obj) {
-
     if (obj.apikey == undefined || obj.apikey == "") {
       return;
     }
@@ -41,8 +40,7 @@ function saveKey(e) {
   key = document.getElementById('apikey').value;
   source_lang = document.getElementById('source_lang') ? document.getElementById('source_lang').value : "ja";
   target_lang = document.getElementById('target_lang') ? document.getElementById('target_lang').value : "en";
-  chrome.storage.sync.set({'apikey': key, 'source_lang': source_lang, 'target_lang': target_lang}, function() {
-        });
+  chrome.storage.sync.set({'apikey': key, 'source_lang': source_lang, 'target_lang': target_lang}, function() {});
 
   if (document.getElementById('support_lang').value == "") {
     retrieveSupportLang(key);
@@ -111,13 +109,10 @@ function httpGet(url) {
     xhr.open( "GET", url, false);
     xhr.send();
   } catch(err) {
-    console.log(err);
     return;
   }
   if (xhr.status === 400) {
     document.getElementById('key').style = "color: red";
   }
   return xhr.responseText;
-
 }
-
